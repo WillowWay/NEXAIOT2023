@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="Shortcut Icon" type="image/x-icon" href="img/favicon.ico" />
+        <title>測試網頁QRcode掃描</title>
+        <!--
+        <meta name="description" content="網頁版 QRcode 掃描器">
+        <meta name="author" content="小毛網站">
+        <meta property="og:title" content="測試網頁QRcode掃描">
+        <meta property="og:url" content="https://98goto.com/ezs/qrcode.php">
+        <meta property="og:description" content="網頁版 QRcode 掃描器">
+        -->
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-FCJESZX9B8&amp;l=dataLayer&amp;cx=c"></script><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.1/html5-qrcode.min.js"></script>
+        
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-44290897-9"></script>
+        <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+        
+              gtag('config', 'UA-44290897-9');
+        </script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bg">
+            <img src="img/MainBack_1920x1080.png">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-3 ml-3 text-center" style="color: white;font-size: 36px;">請掃描QRcode</div>
+                <!--
+                    <div class="col-12 mt-3 ml-3 text-center">
+                    <a href="//98goto.com/ezs/"><img border="0" src="images/logo2-2.png" align="top" width="100%" style="max-width: 300px;" title="小毛網站" alt="小毛網站"></a>
+                </div>
+                -->
+                <div class="col-2 d-none d-md-block"></div>
+                <div id="qr_div" class="col-8 text-center">
+                    <div id="qr-reader" style="width: 100%; position: relative;">
+                        <video muted="true" playsinline="" style="width: 500px; text-align: center;"></video>
+                        <canvas id="qr-canvas" width="200" height="200" style="width: 200px; height: 200px; display: none; text-align: center;"></canvas>
+                        <div id="qr-shaded-region" style="position: absolute; border-width: 265px; border-style: solid; border-color: rgba(0, 0, 0, 0.48); box-sizing: border-box; inset: 0px;">
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; left: 0px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; right: 0px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: 205px; left: 0px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: 205px; right: 0px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; left: -5px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: 165px; left: -5px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; right: -5px;"></div>
+                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: 165px; right: -5px;"></div>
+                        </div>
+                        <div style="display: none; position: absolute; top: 0px; z-index: 1; background: yellow; text-align: center; width: 100%;">Scanner paused</div>
+                    </div>
+                    <div id="qr-reader-results"></div>
+                </div>
+                <div class="col-2 d-none d-md-block"></div>
+                <div id="copy_div" class="col-12 mt-3 text-center" style="display: none;">
+                    <textarea name="showtext" rows="5" cols="60" required id="qrcode"></textarea>
+                    <!--<input type="text" id="qrcode">-->
+                    <button onclick="copyToClipBoard()">複製</button>
+                    <button onclick="re_html5qrcode()">再掃一次</button>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="text-center">Copyright © 2023 小毛網站 All rights reserved.</div>
+        -->
+        <div class="btn2_1">
+            <a href="index.html"><img src="img/HomeW_95x95.png"></a>
+        </div>
+        <script type="text/javascript">
+                // html5QrCode
+                    const html5QrCode = new Html5Qrcode("qr-reader");
+                    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+                        /* handle success */
+                        if ( decodedText != '' ) {
+                            $('#qrcode').val(decodedText);
+                            html5QrCode.stop();
+                            $('#qr_div').hide();
+                            $('#copy_div').show();
+                            gtag('event', 'ues', {'event_category': 'tool','event_label': 'QRcode','value': 1 });
+                        }
+                    };
+                    const config = { fps: 100, qrbox: { width: 500, height: 500 }, aspectRatio: 1, formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13] };
+                    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        
+                    setTimeout(function () {
+                        html5QrCode.applyVideoConstraints({
+                            focusMode: "continuous",
+                            advanced: [{ zoom: 2.0 }],
+                        });
+                    }, 2000);
+        
+                function copyToClipBoard() {
+                    var content = document.getElementById('qrcode');
+                    content.select();
+                    document.execCommand('copy');
+                    alert("已複製!");
+                }
+        
+                function re_html5qrcode() {
+                    $('#qrcode').val('');
+                    $('#qr_div').show();
+                    $('#copy_div').hide();
+        
+                    const config = { fps: 100, qrbox: { width: 500, height: 500 }, aspectRatio: 1, formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13] };
+                    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+                    
+                    setTimeout(function () {
+                        html5QrCode.applyVideoConstraints({
+                            focusMode: "continuous",
+                            advanced: [{ zoom: 2.0 }],
+                        });
+                    }, 2000);
+                }
+            </script>
+        <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v2cb3a2ab87c5498db5ce7e6608cf55231689030342039" integrity="sha512-DI3rPuZDcpH/mSGyN22erN5QFnhl760f50/te7FTIYxodEF8jJnSFnfnmG/c+osmIQemvUrnBtxnMpNdzvx1/g==" data-cf-beacon="{&quot;rayId&quot;:&quot;7e605dc8fd60afb5&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;b354261e40684f6887bf0a21f71b2dda&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+        
+    </body>
+</html>
