@@ -7,28 +7,32 @@
     z-index: -999;
 }
 .bg img{
-    min-height: 100%;
-    width: 100%;
+    background-size: cover;
+}
+.logo{
+    position: fixed;
+    left: 50px;
+    top: 50px;
 }
 .btn1_1{
     position: fixed;
-    left: 250px;
-    top: 310px;
+    left: 120px;
+    top: 160px;
 }
 .btn1_2{
     position: fixed;
-    left: 400px;
-    top: 310px;
+    left: 120px;
+    top: 280px;
 }
 .btn1_3{
     position: fixed;
-    left: 400px;
-    top: 450px;
+    left: 120px;
+    top: 400px;
 }
 .btn1_4{
     position: fixed;
-    left: 250px;
-    top: 470px;
+    left: 120px;
+    top: 520px;
 }
 .btn2_1{
     position: fixed;
@@ -36,12 +40,19 @@
     top: 200px;
 }
 
-h1{
+h1_1{
+    color:orange;
+    font-size: 36px;
+    position: fixed;
+    left: 350px;
+    top: 150px;
+}
+h1_2{
     color:white;
     font-size: 60px;
     position: fixed;
-    left: 400px;
-    top: -10px;
+    left: 350px;
+    top: 185px;
 }
 h2{
     color:white;
