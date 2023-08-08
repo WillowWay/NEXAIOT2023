@@ -1,123 +1,134 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="Shortcut Icon" type="image/x-icon" href="img/favicon.ico" />
-        <title>測試網頁QRcode掃描</title>
         <!--
-        <meta name="description" content="網頁版 QRcode 掃描器">
-        <meta name="author" content="小毛網站">
-        <meta property="og:title" content="測試網頁QRcode掃描">
-        <meta property="og:url" content="https://98goto.com/ezs/qrcode.php">
-        <meta property="og:description" content="網頁版 QRcode 掃描器">
+        <meta name="description" content="QR Code scanner">
+        <meta name="keywords" content="qrcode,qr code,scanner,barcode,javascript">
+        <meta name="language" content="English">
+        <meta name="copyright" content="Lazar Laszlo (c) 2011">
+        <meta name="Revisit-After" content="1 Days">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+        <link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=webqr.com" as="script">
+        <script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=webqr.com"></script>
         -->
         
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-FCJESZX9B8&amp;l=dataLayer&amp;cx=c"></script><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.1/html5-qrcode.min.js"></script>
+        <meta name="robots" content="index, follow"><!--禁止網頁被搜尋引擎索引收錄-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--針對手機或pad螢幕解析度優化-->
+        <title>Web QRcooo</title>
+        <link rel="stylesheet" href="styleN.css">
         
-        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-44290897-9"></script>
+        <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202307170101/reactive_library_fy2021.js"></script>
+        <script src="https://partner.googleadservices.com/gampad/cookie.js?domain=webqr.com&amp;callback=_gfp_s_&amp;client=ca-pub-8418802408648518"></script>
+        <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202307170101/show_ads_impl_fy2021.js" id="google_shimpl"></script>
+        <script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.zh_TW.B-fLRokA8c8.O/m=auth/exm=plusone/rt=j/sv=1/d=1/ed=1/rs=AHpOoo94LzUy_OLEc7VXs3Yox9X7OMobiA/cb=gapi.loaded_1?le=scs" async=""></script>
+        <script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.zh_TW.B-fLRokA8c8.O/m=plusone/rt=j/sv=1/d=1/ed=1/rs=AHpOoo94LzUy_OLEc7VXs3Yox9X7OMobiA/cb=gapi.loaded_0?le=scs" async=""></script>
+        <script type="text/javascript" src="llqrcode.js"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script>
+        <script type="text/javascript" src="webqr.js"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GWM3JQZB95"></script>
         <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
         
-              gtag('config', 'UA-44290897-9');
+            gtag('config', 'G-GWM3JQZB95');
         </script>
-        <link rel="stylesheet" href="style.css">
+        <meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+        <meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+        <meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+        <meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+        <meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+        
     </head>
-    <body>
-        <div class="bg">
-            <img src="img/MainBack_1920x1080.png">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mt-3 ml-3 text-center" style="color: white;font-size: 36px;">請掃描QRcode</div>
-                <!--
-                    <div class="col-12 mt-3 ml-3 text-center">
-                    <a href="//98goto.com/ezs/"><img border="0" src="images/logo2-2.png" align="top" width="100%" style="max-width: 300px;" title="小毛網站" alt="小毛網站"></a>
-                </div>
-                -->
-                <div class="col-2 d-none d-md-block"></div>
-                <div id="qr_div" class="col-8 text-center">
-                    <div id="qr-reader" style="width: 100%; position: relative;">
-                        <video muted="true" playsinline="" style="width: 500px; text-align: center;"></video>
-                        <canvas id="qr-canvas" width="200" height="200" style="width: 200px; height: 200px; display: none; text-align: center;"></canvas>
-                        <div id="qr-shaded-region" style="position: absolute; border-width: 265px; border-style: solid; border-color: rgba(0, 0, 0, 0.48); box-sizing: border-box; inset: 0px;">
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; left: 0px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: -5px; right: 0px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: 205px; left: 0px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 40px; height: 5px; top: 205px; right: 0px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; left: -5px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: 165px; left: -5px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: -5px; right: -5px;"></div>
-                            <div style="position: absolute; background-color: rgb(255, 255, 255); width: 5px; height: 45px; top: 165px; right: -5px;"></div>
-                        </div>
-                        <div style="display: none; position: absolute; top: 0px; z-index: 1; background: yellow; text-align: center; width: 100%;">Scanner paused</div>
+    <body aria-hidden="false">
+        <div class="bg"></div>
+        <div id="main">
+            <div id="header">
+                <div style="position:relative;top:+20px;left:0px;">
+                    <!--
+                    <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;">
+                        <iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1689919708717" name="I0_1689919708717" src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=https%3A%2F%2Fwebqr.com&amp;url=https%3A%2F%2Fwebqr.com%2F&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.zh_TW.B-fLRokA8c8.O%2Fd%3D1%2Frs%3DAHpOoo94LzUy_OLEc7VXs3Yox9X7OMobiA%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1689919708717&amp;_gfid=I0_1689919708717&amp;parent=https%3A%2F%2Fwebqr.com&amp;pfname=&amp;rpctoken=92036776" data-gapiattached="true">
+                            <html>
+                                <head></head>
+                                <body marginwidth="0" marginheight="0"></body>
+                                </html>
+                            </iframe>
                     </div>
-                    <div id="qr-reader-results"></div>
+                    <g:plusone size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+                    -->
+                    
                 </div>
-                <div class="col-2 d-none d-md-block"></div>
-                <div id="copy_div" class="col-12 mt-3 text-center" style="display: none;">
-                    <textarea name="showtext" rows="5" cols="60" required id="qrcode"></textarea>
-                    <!--<input type="text" id="qrcode">-->
-                    <button onclick="copyToClipBoard()">複製</button>
-                    <button onclick="re_html5qrcode()">再掃一次</button>
-                </div>
+                <p id="mp1">QR Code scanner</p>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div id="mainbody" style="display: inline;">
+                <table class="tsel" border="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <td valign="top" align="center" width="50%">
+                                <table class="tsel" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img class="selector" id="webcamimg" src="img/video_32.png" onclick="setwebcam()" align="left" style="opacity: 1;">
+                                            </td>
+                                            <td>
+                                                <img class="selector" id="qrimg" src="img/Camera_32.png" onclick="setimg()" align="right" style="opacity: 0.2;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <div id="outdiv">
+                                                    <video id="v" autoplay=""></video>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <img src="img/check_32.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center" style="color: white;">
+                                <div id="result">- scanning - </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- webqr_2016 -->
             </div>
         </div>
-        <!--
-        <div class="text-center">Copyright © 2023 小毛網站 All rights reserved.</div>
-        -->
-        <div class="btn2_1">
-            <a href="index.html"><img src="img/HomeW_95x95.png"></a>
-        </div>
-        <script type="text/javascript">
-                // html5QrCode
-                    const html5QrCode = new Html5Qrcode("qr-reader");
-                    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-                        /* handle success */
-                        if ( decodedText != '' ) {
-                            $('#qrcode').val(decodedText);
-                            html5QrCode.stop();
-                            $('#qr_div').hide();
-                            $('#copy_div').show();
-                            gtag('event', 'ues', {'event_category': 'tool','event_label': 'QRcode','value': 1 });
-                        }
-                    };
-                    const config = { fps: 100, qrbox: { width: 500, height: 500 }, aspectRatio: 1, formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13] };
-                    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        <canvas id="qr-canvas" width="800" height="1000" style="width: 800px; height: 1000px;"></canvas>
+        <script type="text/javascript">load();</script>
+
+        <script>
+            function showButton() {
+                var intext = document.
+              var inputText = document.getElementById('textInput').value;
+              var outputDiv = document.getElementById('output');
         
-                    setTimeout(function () {
-                        html5QrCode.applyVideoConstraints({
-                            focusMode: "continuous",
-                            advanced: [{ zoom: 2.0 }],
-                        });
-                    }, 2000);
-        
-                function copyToClipBoard() {
-                    var content = document.getElementById('qrcode');
-                    content.select();
-                    document.execCommand('copy');
-                    alert("已複製!");
-                }
-        
-                function re_html5qrcode() {
-                    $('#qrcode').val('');
-                    $('#qr_div').show();
-                    $('#copy_div').hide();
-        
-                    const config = { fps: 100, qrbox: { width: 500, height: 500 }, aspectRatio: 1, formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13] };
-                    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
-                    
-                    setTimeout(function () {
-                        html5QrCode.applyVideoConstraints({
-                            focusMode: "continuous",
-                            advanced: [{ zoom: 2.0 }],
-                        });
-                    }, 2000);
-                }
-            </script>
-        <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v2cb3a2ab87c5498db5ce7e6608cf55231689030342039" integrity="sha512-DI3rPuZDcpH/mSGyN22erN5QFnhl760f50/te7FTIYxodEF8jJnSFnfnmG/c+osmIQemvUrnBtxnMpNdzvx1/g==" data-cf-beacon="{&quot;rayId&quot;:&quot;7e605dc8fd60afb5&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;b354261e40684f6887bf0a21f71b2dda&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
-        
+              // 在這裡進行文字判斷
+              if (inputText.includes('關鍵字1')) {
+                outputDiv.innerHTML = '<button>按鈕1</button>';
+              } else if (inputText.includes('關鍵字2')) {
+                outputDiv.innerHTML = '<button>按鈕2</button>';
+              } else {
+                outputDiv.innerHTML = '<p>沒有找到相應的按鈕。</p>';
+              }
+            }
+          </script>
+
     </body>
 </html>
