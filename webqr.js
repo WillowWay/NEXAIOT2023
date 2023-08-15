@@ -104,10 +104,16 @@ function htmlEntities(str) {
 function read(a)
 {
     var html="<br>";
+    var el=document.querySelector(".listt");
     if(a.indexOf("http://") === 0 || a.indexOf("https://") === 0)
         html+="<a target='_blank' href='"+a+"'>"+a+"</a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
+    if(a=="http://192.168.1.2:10200/PEAK980VL2")
+    {
+        el.innerHTML = '<li><a href="index.html"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_1"> 明細 </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_TS"> 交大系統 </a></li>';
+        
+    }
 }	
 
 function isCanvasSupported(){
@@ -238,3 +244,25 @@ function setimg()
     qrfile.addEventListener("drop", drop, false);
     stype=2;
 }
+
+/*function showButton()
+{
+    var el=document.querySelector(.list);
+
+    //var intext = document.
+    var inputText = a;
+    var outputDiv = document.getElementById('output');
+
+    // 在這裡進行文字判斷
+    if (inputText.includes('關鍵字1')) {
+        el.innerHTML = '<li><a href="index.html"> Homeee </a></li>'; 
+        
+        outputDiv.innerHTML = '<button>按鈕1</button>';
+    }
+    else if (inputText.includes('關鍵字2')) {
+        outputDiv.innerHTML = '<button>按鈕2</button>';
+    } 
+     else {
+         outputDiv.innerHTML = '<p>沒有找到相應的按鈕。</p>';
+    }
+}*/

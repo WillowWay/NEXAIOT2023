@@ -62,13 +62,15 @@
                     
                 </div>
                 <p id="mp1">請掃描 QR Code</p>
-                <ul>
+                <ul class="listt">
+                    <!--
                     <li>
                         <a href="index.html">Home</a>
                     </li>
                     <li>
                         <a href="TestQR.html">Scan</a>
                     </li>
+                    -->
                     
                 </ul>
             </div>
@@ -105,7 +107,7 @@
                         </tr>
                         <tr>
                             <td colspan="3" align="center" style="color: white;">
-                                <div id="result">- scanning - </div>
+                                <div id="result">- xxxscanning - </div>
                             </td>
                         </tr>
                     </tbody>
@@ -116,22 +118,6 @@
         <canvas id="qr-canvas" width="800" height="1000" style="width: 800px; height: 1000px;"></canvas>
         <script type="text/javascript">load();</script>
 
-        <script>
-            function showButton() {
-                var intext = document.
-              var inputText = document.getElementById('textInput').value;
-              var outputDiv = document.getElementById('output');
-        
-              // 在這裡進行文字判斷
-              if (inputText.includes('關鍵字1')) {
-                outputDiv.innerHTML = '<button>按鈕1</button>';
-              } else if (inputText.includes('關鍵字2')) {
-                outputDiv.innerHTML = '<button>按鈕2</button>';
-              } else {
-                outputDiv.innerHTML = '<p>沒有找到相應的按鈕。</p>';
-              }
-            }
-          </script>
 
     </body>
 </html>
