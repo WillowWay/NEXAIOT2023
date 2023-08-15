@@ -44,8 +44,8 @@ body{
 }
 #mp1{
     text-align:center;
-    font-size:28px;
-    color: white;
+    font-size:26px;
+    color:darkgray;
 }
 #imghelp{
     position:relative;
@@ -72,7 +72,19 @@ body{
     height:360px;
     border: solid;
     border-width: 3px 3px 3px 3px;
+    border-color: black;
 }
+.outdivv
+{
+    width:480px;
+    height:360px;
+    border: solid;
+    padding:10px;
+    font-size:28px;
+    color:darkgray;
+    text-align: left;
+}
+
 #result{
     border: solid;
     border-width: 1px 1px 1px 1px;
@@ -80,24 +92,32 @@ body{
     width:70%;
 }            
 ul{
-    margin-bottom:0;
+    margin-bottom:10px;
     margin-right:40px;
 }
 li{
     display:inline;
     padding-right: 0.5em;
     padding-left: 0.5em;
-    font-weight: bold;
-    border-right: 1px solid #333333;
+    /*font-weight: bold;*/
+    border-right: 2px solid #333333;
 }
 li a{
     text-decoration: none;
-    color: lightgray;
+    font-size:24px;
+    color:white;
 }
             
 #footer a{
-    color: lightgray;
+    color: darkgray;
 }
 .tsel{
     padding:0;
 }
+/*br{
+    border-color: black;
+}
+br b{
+    color: darkgray;
+    font-size:10px;
+}*/

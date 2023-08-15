@@ -105,14 +105,36 @@ function read(a)
 {
     var html="<br>";
     var el=document.querySelector(".listt");
+    var dt=document.querySelector(".outdivv");
     if(a.indexOf("http://") === 0 || a.indexOf("https://") === 0)
         html+="<a target='_blank' href='"+a+"'>"+a+"</a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
-    if(a=="http://192.168.1.2:10200/PEAK980VL2")
+    
+    if(a=="http://192.168.1.2:10200/NISE3900")
+    {
+        el.innerHTML = '<li><a href="index.html"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/NISE3900_1"> 明細 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_TS"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V1"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V2"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V3"> 包裝VID </a></li>';
+        dt.innerHTML ='<p> Product Name: NISE3900</p><p>Product S/N:</p><p> Product Emissions: </p><p> Product Started Time: </p><p> Product Ended Time: </p>'
+    }
+    else if(a=="http://192.168.1.2:10200/NIFE210-E01")
+    {
+        el.innerHTML = '<li><a href="index.html"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_1"> 明細 </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_TS"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V1"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V2"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V3"> 包裝VID </a></li>';
+        dt.innerHTML ='<p> Product Name: NIFE210-E01</p><p> Product S/N: </p><p> Product Emissions: </p><p> Product Started Time: </p><p> Product Ended Time: </p>'
+    }
+    else if(a=="http://192.168.1.2:10200/IPPC1611-C11")
+    {
+        el.innerHTML = '<li><a href="index.html"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_1"> 明細 </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_TS"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V1"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V2"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V3"> 包裝VID </a></li>';
+        dt.innerHTML ='<p> Product Name: IPPC1611-C11</p><p> Product S/N: </p><p> Product Emissions: </p><p> Product Started Time: </p><p> Product Ended Time: </p>'
+    }
+    else if(a=="http://192.168.1.2:10200/PEAK980VL2")
     {
         el.innerHTML = '<li><a href="index.html"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_1"> 明細 </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_TS"> 交大系統 </a></li>';
-        
+        dt.innerHTML ='<p> Product Name: PEAK980VL2</p><p> Product S/N: </p><p> Product Emissions: </p><p> Product Started Time: </p><p> Product Ended Time: </p>'
+    }
+    else if(a=="http://192.168.1.2:10200/CPS50-N02")
+    {
+        el.innerHTML = '<li><a href="index.html"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_1"> 明細 </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_TS"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V1"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V2"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V3"> 包裝VID </a></li>';
+        dt.innerHTML ='<p> Product Name: CPS50-N02</p><p> Product S/N: </p><p> Product Emissions: </p><p> Product Started Time: </p><p> Product Ended Time: </p>'
     }
 }	
 
