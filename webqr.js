@@ -110,7 +110,7 @@ function read(a)
         html+="<a target='_blank' href='"+a+"'><button>確認</button></a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
-    document.getElementById("myLink").addEventListener("click", function(event) {
+    document.getElementById("result").addEventListener("click", function(event) {
             event.preventDefault(); // 阻止默认的链接跳转行为
         });
     if(a=="http://192.168.1.2:10200/NISE3900")
