@@ -107,16 +107,17 @@ function read(a)
     var el=document.querySelector(".listt");
     var dt=document.querySelector(".outdivv");
     if(a.indexOf("http://") === 0 || a.indexOf("https://") === 0)
-        html+="<a target='_blank' href='"+a+"'>"+a+"</a><br>";
+        html+="<a target='_blank' href='"+a+"'><button>確認</button></a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
-    
+    document.getElementById("myLink").addEventListener("click", function(event) {
+            event.preventDefault(); // 阻止默认的链接跳转行为
+        });
     if(a=="http://192.168.1.2:10200/NISE3900")
     {
         el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"id="myLink"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/NISE3900_1"id="myLink"> 明細 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_TS"id="myLink"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V1"id="myLink"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V2"id="myLink"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V3"id="myLink"> 包裝VID </a></li>';
         dt.innerHTML ='<p> Product Name: NISE3900</p><p>Product S/N: M30001CVZDVCG6B</p><p> Product Emissions: 140.28 KgCO2e</p><p> Product Started Time: 2023/1/7 15:51:10</p><p> Product Ended Time: 2023/1/19 06:52:22</p>'
-        document.getElementById("myLink").addEventListener("click", function(event) 
-        {
+        document.getElementById("myLink").addEventListener("click", function(event) {
             event.preventDefault(); // 阻止默认的链接跳转行为
         });
     }
