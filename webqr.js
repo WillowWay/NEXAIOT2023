@@ -110,9 +110,9 @@ function read(a)
         html+="<a target='_blank' href='"+a+"'><button>確認</button></a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
-    document.getElementById("result").addEventListener("click", function(event) {
+    /*document.getElementById("result").addEventListener("click", function(event) {
             event.preventDefault(); // 阻止默认的链接跳转行为
-        });
+        });*/
     if(a=="http://192.168.1.2:10200/NISE3900")
     {
         el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"id="myLink"> Home </a></li><li><a href="TestQR.html"> Scan </a></li><li><a href="http://192.168.1.2:10200/NISE3900_1"id="myLink"> 明細 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_TS"id="myLink"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V1"id="myLink"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V2"id="myLink"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V3"id="myLink"> 包裝VID </a></li>';
