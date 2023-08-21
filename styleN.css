@@ -42,6 +42,11 @@ body{
     width:480px;
     height:360px;
 }
+.logo{
+    position: fixed;
+    left: 50px;
+    top: 40px;
+}
 #mp1{
     text-align:center;
     font-size:26px;
