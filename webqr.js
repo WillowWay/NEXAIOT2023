@@ -108,7 +108,6 @@ function read(a)
     var dt=document.querySelector(".outdivv");
     if(a.indexOf("http://") === 0 || a.indexOf("https://") === 0)
         html+="<a target='_blank' href='"+a+"'><button>確認</button></a><br>";
-    html+=window.open("+a+", '_blank');
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
     
