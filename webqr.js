@@ -114,7 +114,7 @@ function read(a)
     
     if(a=="http://192.168.1.2:10200/NISE3900")
     {
-        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"target="_blank"> Home </a></li><li><a href="http://192.168.1.2:10200/NISE3900_1"target="_blank"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_TS"target="_blank"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V1"target="_blank"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V2"target="_blank"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V3"target="_blank"> 包裝VID </a></li>';
+        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"onclick="openLink(event)"> Home </a></li><li><a href="http://192.168.1.2:10200/NISE3900_1"onclick="openLink(event)"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_TS"onclick="openLink(event)"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V1"onclick="openLink(event)"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V2"onclick="openLink(event)"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NISE3900_V3"onclick="openLink(event)"> 包裝VID </a></li>';
         dt.innerHTML ='<p> Product Name: NISE3900</p><p>Product S/N: M30001CVZDVCG6B</p><p> Product Emissions: 140.28 KgCO2e</p><p> Product Started Time: 2023/1/7 15:51:10</p><p> Product Ended Time: 2023/1/19 06:52:22</p>'
         document.getElementById("myLink").addEventListener("click", function(event) {
             event.preventDefault(); // 阻止默认的链接跳转行为
@@ -122,22 +122,22 @@ function read(a)
     }
     else if(a=="http://192.168.1.2:10200/NIFE210-E01")
     {
-        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"target="_blank"> Home </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_1"target="_blank"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_TS"target="_blank"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V1"target="_blank"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V2"target="_blank"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V3"target="_blank"> 包裝VID </a></li>';
+        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"onclick="openLink(event)"> Home </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_1"onclick="openLink(event)"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_TS"onclick="openLink(event)"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V1"onclick="openLink(event)"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V2"onclick="openLink(event)"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/NIFE210-E01_V3"onclick="openLink(event)"> 包裝VID </a></li>';
         dt.innerHTML ='<p> Product Name: NIFE210-E01</p><p> Product S/N: X13301B7THDKQA7</p><p> Product Emissions: 168.42 KgCO2e</p><p> Product Started Time: 2022/11/24 22:50:58</p><p> Product Ended Time: 2022/12/14 16:47:00</p>'
     }
     else if(a=="http://192.168.1.2:10200/IPPC1611-C11")
     {
-        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main" onclick="openLink(event)"> Home </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_1"target="_blank"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_TS"onclick="openLink(event)"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V1"target="_blank"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V2"target="_blank"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V3"target="_blank"> 包裝VID </a></li>';
+        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main" onclick="openLink(event)"> Home </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_1"onclick="openLink(event)"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_TS"onclick="openLink(event)"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V1"onclick="openLink(event)"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V2"onclick="openLink(event)"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/IPPC1611-C11_V3"onclick="openLink(event)"> 包裝VID </a></li>';
         dt.innerHTML ='<p> Product Name: IPPC1611-C11</p><p> Product S/N: X12400HWMPM9DD9</p><p> Product Emissions: 5.48 KgCO2e</p><p> Product Started Time: 2022/10/18 01:08:59</p><p> Product Ended Time: 2022/10/29 08:57:05</p>'
     }
     else if(a=="http://192.168.1.2:10200/PEAK980VL2")
     {
-        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"target="_blank"> Home </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_1"target="_blank"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_TS"target="_blank"> 交大系統 </a></li>';
+        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"onclick="openLink(event)"> Home </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_1"onclick="openLink(event)"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/PEAK980VL2_TS"onclick="openLink(event)"> 交大系統 </a></li>';
         dt.innerHTML ='<p> Product Name: PEAK980VL2</p><p> Product S/N: X13301B7THDKQA7</p><p> Product Emissions: 131.45 KgCO2e</p><p> Product Started Time: 2022/11/22 06:43:29</p><p> Product Ended Time: 2022/12/21 08:40:01</p>'
     }
     else if(a=="http://192.168.1.2:10200/CPS50-N02")
     {
-        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"target="_blank"> Home </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_1"target="_blank"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_TS"target="_blank"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V1"target="_blank"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V2"target="_blank"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V3"target="_blank"> 包裝VID </a></li>';
+        el.innerHTML = '<li><a href="http://192.168.1.2:10200/main"onclick="openLink(event)"> Home </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_1"onclick="openLink(event)"> 履歷明細 </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_TS"onclick="openLink(event)"> 交大系統 </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V1"onclick="openLink(event)"> 鎖板VID </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V2"onclick="openLink(event)"> 外殼VID </a></li><li><a href="http://192.168.1.2:10200/CPS50-N02_V3"onclick="openLink(event)"> 包裝VID </a></li>';
         dt.innerHTML ='<p> Product Name: CPS50-N02</p><p> Product S/N: X11301FTCD6JG90</p><p> Product Emissions: 197.18KgCO2e</p><p> Product Started Time: 2022/11/16 19:37:17</p><p> Product Ended Time: 2022/12/21 09:24:39</p>'
     }
 }	
