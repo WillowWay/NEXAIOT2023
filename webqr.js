@@ -107,7 +107,7 @@ function read(a)
     var el=document.querySelector(".listt");
     var dt=document.querySelector(".outdivv");
     if(a.indexOf("http://") === 0 || a.indexOf("https://") === 0)
-        html+="<a onclick='openLink(event)' href='"+a+"'><button>確認</button></a><br>";
+        html+="<a href='"+a+"'onclick= openLink(event) ><button>確認</button></a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
     
